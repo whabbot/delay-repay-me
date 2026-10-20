@@ -9,6 +9,7 @@ Research date: 2026-10-19. This file brings together four research slices:
 | [`03-independent-tools-and-analogues.md`](03-independent-tools-and-analogues.md) | Independent claim tools, Delay Repay Sniper, flight and European analogues, operator stance on third-party claims |
 | [`04-rail-data-and-claim-portals.md`](04-rail-data-and-claim-portals.md) | Open rail data for verifying delays, operator claim portals |
 | [`05-portal-spike.md`](05-portal-spike.md) | Hands-on look at the West Midlands Trains and Avanti claim portals (added after this summary; it updates section 3 below) |
+| [`06-train-badger.md`](06-train-badger.md) | Train Badger: iOS beta app with Delay Repay tracking and an API for AI agents |
 
 > **Evidence caveat.** In every slice, direct page fetches failed in the research environment. All findings come from search-result excerpts of the cited pages, not from reading them in full. Each file labels claims as primary-source excerpt, reported, or uncertain. Re-check anything load-bearing (operator rules, competitor features, tender dates) against the live page before relying on it.
 

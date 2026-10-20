@@ -44,7 +44,23 @@ Because most claims will be made on a phone, and B2 is desktop-only:
 - **B2** follows for when you're at a computer. The agent fills the form and stops at the review screen. The person checks it, ticks the reCAPTCHA and presses Submit.
 - **B1** (stretch) is the only automated option that could also work on a phone, via Firefox for Android or Safari on iOS.
 
+### D6. Phone platform: Android
+
+Claims are mostly made on an Android phone. That has two effects:
+
+- The claim pack (A) must work well in a mobile browser on Android.
+- The stretch goal B1 (browser extension) could run on the phone via **Firefox for Android**, which supports extensions. That makes it the only automated hand-off that could work on a phone.
+
+### D7. Facts confirmed from past use
+
+Both the WMT portal and the Avanti portal **find TrainPal-bought tickets** in their ticket lookup. This is from past claims we've made, not from the spike.
+
+### D8. Train Badger: optional data source, not a dependency
+
+Train Badger (see [`../research/06-train-badger.md`](../research/06-train-badger.md)) is iOS-only and in beta. It verifies delays from the same data source we chose (HSP) and has an agent API, but it never submits claims. We keep HSP as our own source of truth. Train Badger may become an optional cross-check later.
+
 ## Open
 
-- Which phone platform (Android or iOS)? This affects how useful B1 could be on mobile, and how the claim pack is delivered.
-- Spike follow-ups: walk through a real past journey, read WMR's terms, and check that HSP's RIDs match the portal's train list. See section 5 of the spike.
+- **Walk-through of a real claim:** waiting until there's a delay to claim for. Until then, design from the spike's field list.
+- **WMR's terms and conditions:** blocked from the cloud environment; to be read in a normal browser.
+- **Check that HSP's RIDs match the portal's train list** for the same journey.
