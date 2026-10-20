@@ -28,8 +28,23 @@ This is a personal tool first, developed in a **public** repository that others 
 
 Booking confirmation emails (starting with TrainPal's) are the main way to get the journey and the proof of ticket. Calendar-based detection stays an extra.
 
+### D4. First operator: West Midlands Trains (WMR + LNR)
+
+Neither of the remaining candidates has a stronger case. One integration covers both WMT brands, and their portal runs on the Tracsis `delayrepaycompensation.com` platform. That same platform also serves Greater Anglia and c2c, so the work carries over. See [`../research/05-portal-spike.md`](../research/05-portal-spike.md).
+
+WMR and LNR do offer "one-click" claims, but only for Advance Singles bought through their own app or website. TrainPal tickets don't qualify, which settles the earlier open question.
+
+### D5. Hand-off: claim pack first, then an agent-driven browser (B2)
+
+The rule we agreed: use B2 (an agent-driven visible browser that stops before Submit) if the portal's final screen shows the values being submitted. Otherwise use B1 (a browser extension). The spike found that both target portals end on a review screen: WMT's "Confirm your claim" and Avanti's "Review claim details". So **B2**. B1 stays a stretch goal.
+
+Because most claims will be made on a phone, and B2 is desktop-only:
+
+- **A: claim pack** (copy and paste, phone-friendly) is the **first deliverable and the everyday route**. It's also the structured output that B2 fills in.
+- **B2** follows for when you're at a computer. The agent fills the form and stops at the review screen. The person checks it, ticks the reCAPTCHA and presses Submit.
+- **B1** (stretch) is the only automated option that could also work on a phone, via Firefox for Android or Safari on iOS.
+
 ## Open
 
-- **The hand-off: how the drafted claim reaches the operator's portal.** Under discussion.
-- **First operator:** West Midlands Trains (WMR + LNR) or Avanti.
-- **WMR's automation:** the research conflicts on whether WMR offers "one-click" claims. Either way, it is unlikely to cover TrainPal tickets.
+- Which phone platform (Android or iOS)? This affects how useful B1 could be on mobile, and how the claim pack is delivered.
+- Spike follow-ups: walk through a real past journey, read WMR's terms, and check that HSP's RIDs match the portal's train list. See section 5 of the spike.

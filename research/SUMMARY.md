@@ -8,6 +8,7 @@ Research date: 2026-10-19. This file brings together four research slices:
 | [`02-operator-auto-compensation.md`](02-operator-auto-compensation.md) | Operators' own automatic schemes, national policy (DfT / GBR / ORR), claim rates |
 | [`03-independent-tools-and-analogues.md`](03-independent-tools-and-analogues.md) | Independent claim tools, Delay Repay Sniper, flight and European analogues, operator stance on third-party claims |
 | [`04-rail-data-and-claim-portals.md`](04-rail-data-and-claim-portals.md) | Open rail data for verifying delays, operator claim portals |
+| [`05-portal-spike.md`](05-portal-spike.md) | Hands-on look at the West Midlands Trains and Avanti claim portals (added after this summary; it updates section 3 below) |
 
 > **Evidence caveat.** In every slice, direct page fetches failed in the research environment. All findings come from search-result excerpts of the cited pages, not from reading them in full. Each file labels claims as primary-source excerpt, reported, or uncertain. Re-check anything load-bearing (operator rules, competitor features, tender dates) against the live page before relying on it.
 
@@ -68,6 +69,8 @@ The question that matters is who the claimant is.
 Operators mostly ask for proof of the ticket, not proof of the delay. So the data evidence mainly serves our approval screen and protects the passenger in a dispute. That fits the "agent shows its evidence" theme exactly.
 
 ### 3. The claim side is the hard, risky part
+
+> **Updated by the [portal spike](05-portal-spike.md):** shared platforms do exist. Tracsis's `delayrepaycompensation.com` serves WMR, LNR, Greater Anglia and c2c. A `wcr-smart-repay` platform serves Avanti, GWR, TPE, SWR, Hull Trains and Lumo. Both use reCAPTCHA on the final Submit, after a review screen.
 
 - There's no public claims API, and **no shared white-label portal vendor was confirmed**. Portals use `delayrepay.<operator-domain>` hostnames (GWR, Thameslink, Southern, TPE), which hints at shared software, but that's unproven.
 - The GTR brands (Southern, Thameslink, Great Northern) are the likeliest case of one form covering several operators.
