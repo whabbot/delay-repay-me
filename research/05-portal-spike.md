@@ -40,7 +40,25 @@ Date: 2026-10-20. Goal: find out what the claim portals for our target operators
 | Compensation | Bank transfer (sort code and account), IBAN/SWIFT, card (via a Global Payments hosted page in an iframe), Amazon Pay, Gift Aid / charity option |
 | Final screen | "Confirm your claim": summary boxes for details, journey, ticket and compensation. Terms text includes a Fraud Act 2006 warning. reCAPTCHA **v2 checkbox**. Submit button |
 | After submit | Claim reference number shown on screen, "process within 24 hours … up to 10 working days" |
-| Terms | Linked to `westmidlandsrailway.co.uk/terms-and-conditions`, which is behind a Cloudflare challenge from our container. **Not read; still to do** |
+| Terms | The submit text links to `westmidlandsrailway.co.uk/terms-and-conditions` (LNR: `londonnorthwesternrailway.co.uk/terms-and-conditions`). The page is the same for both: WM Trains Ltd's website terms. They were read from text pasted from a normal browser, and are covered in section 2a below |
+
+## 2a. WM Trains Ltd terms and conditions (WMR and LNR)
+
+Source: https://www.westmidlandsrailway.co.uk/terms-and-conditions and https://www.londonnorthwesternrailway.co.uk/terms-and-conditions, read on 2026-10-20 from text pasted from a normal browser. The two pages are identical apart from the brand name. The claim form's Submit text says you agree to "the terms and conditions of the Delay Repay scheme", but it links to these **website** terms. No separate Delay Repay scheme terms are linked. The scheme rules themselves are in the Passenger's Charter and the National Rail Conditions of Travel.
+
+**There's no clause on bots, scraping, automated access or third-party claims.** The clauses that matter for this project:
+
+| Clause (short quote) | Relevance | How we stay inside it |
+| --- | --- | --- |
+| Acceptable use: you will not "use any software, routine or device to interfere or attempt to interfere … with the operation or functionality of this Web site" | The clause is about *interfering* with the site, not about using software at all. Filling the form in your own browser doesn't stop the site working. | Fill the form only. Never get around validation, the reCAPTCHA, or the portal's own ticket and journey checks. |
+| Acceptable use: you will not "deface, alter or interfere with the front end 'look and feel' of this Web site" | **The one that matters for design.** A browser extension or agent that adds panels or overlays to the portal page could arguably "alter the look and feel". | Never add UI to the portal page. Show the evidence in a separate window, side panel or extension pop-up, never inside the page. |
+| Acceptable use: no action that "imposes an unreasonable or disproportionately large load" | Only bulk or repeated automated traffic would hit this. | One claim at a time, at a person's pace. Don't poll or crawl the portal, and don't use its lookup APIs as a data source: delay data comes from HSP. |
+| Acceptable use: no attempt to "obtain unauthorised access" | | Use only your own details and your own session. Never store or share portal passwords. |
+| Proprietary rights: no copying or publishing of site material "or the underlying software code"; personal non-commercial copying allowed | Our public repo must not contain the portal's code or assets. | Portal HTML and JS read during the spike stayed in a local scratch folder. The repo only records facts about the form (field names, step order) and short quotes. |
+| Links: "You may only link to this Web site with Our express written permission" | Strictly read, this covers deep links in the claim pack and docs. In practice Trainline, Train Badger and others link to these forms, and the claim form itself is on a Tracsis domain. **Low risk.** | Keep links to what's needed: one link to the claim form per claim pack. |
+| Booking terms: "The National Rail Conditions of Travel entitle Customers to the same levels of compensation or refund entitlements regardless of where they purchase their ticket." | Confirms that TrainPal tickets have the same compensation rights as tickets bought direct. (This is in WMR's own Trainline-run booking terms, which otherwise don't apply to TrainPal purchases.) | Not applicable |
+
+The claim form also warns that knowingly submitting a fraudulent claim may be an offence under the Fraud Act 2006. This is another reason the tool only drafts claims for journeys it can tie to a real ticket and checked train data, and why a person makes the declaration by pressing Submit.
 
 ## 3. Avanti West Coast: `wcr-smart-repay` platform
 
@@ -68,7 +86,7 @@ Date: 2026-10-20. Goal: find out what the claim portals for our target operators
 1. **A walk-through with a real past WMT journey** in a normal browser, stopping before Submit. Check:
    - the conditional fields for a TrainPal e-ticket (QR code vs ticket number), and whether the portal finds TrainPal tickets;
    - what the Confirm summary actually shows.
-2. **Read WMR's terms and conditions** and the Delay Repay scheme terms. They're blocked from the container, so this needs a normal browser or a screenshot.
+2. ~~Read WMR's terms and conditions.~~ Done, see section 2a.
 3. **Read the Avanti portal's own terms of use**, and confirm the registration requirement for tickets bought elsewhere.
 4. **Check whether HSP's RIDs match the portal's train list** for the same journey. Every train in the portal's "Select your journey" list is identified by its RID.
 5. **Rules on which operator to claim from.** WMR says to claim from the operator whose train was delayed, and allows one claim per journey. This matters on routes where LNR and Avanti overlap (e.g. Birmingham–Euston), where the ticket may be valid on either.

@@ -59,8 +59,18 @@ Both the WMT portal and the Avanti portal **find TrainPal-bought tickets** in th
 
 Train Badger (see [`../research/06-train-badger.md`](../research/06-train-badger.md)) is iOS-only and in beta. It verifies delays from the same data source we chose (HSP) and has an agent API, but it never submits claims. We keep HSP as our own source of truth. Train Badger may become an optional cross-check later.
 
+### D9. Rules for how the tool behaves on claim portals
+
+WM Trains' website terms (WMR and LNR) contain no clause on automation. Their acceptable-use clauses set the rules we follow on every portal (see [`../research/05-portal-spike.md`](../research/05-portal-spike.md), section 2a):
+
+1. **Fill the form, nothing more.** Never get around validation, the reCAPTCHA, or the portal's own checks.
+2. **Never change the portal page.** The evidence and the approval view live in our own window, side panel or extension pop-up, never added onto the operator's page. This avoids the clause about altering the site's "look and feel".
+3. **One claim at a time, at a person's pace.** No polling, crawling or bulk submission. Don't use the portal's lookup APIs as a data source.
+4. **Only your own details, in your own session.** No stored or shared portal passwords.
+5. **No operator code or assets in the repo.** Only facts about the form (field names, step order) and short quotes.
+6. **A person makes the declaration.** The tool drafts claims only for a real ticket plus checked train data. Pressing Submit, with the Fraud Act warning on screen, is always a person's action.
+
 ## Open
 
 - **Walk-through of a real claim:** waiting until there's a delay to claim for. Until then, design from the spike's field list.
-- **WMR's terms and conditions:** blocked from the cloud environment; to be read in a normal browser.
 - **Check that HSP's RIDs match the portal's train list** for the same journey.
