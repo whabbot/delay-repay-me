@@ -20,6 +20,7 @@ Booking apps like Trainline and TrainPal will tell you a train was late, but the
 | Path | Contents |
 | --- | --- |
 | [`docs/PROJECT_INTENT.md`](docs/PROJECT_INTENT.md) | The problem, the idea, initial scope ideas and open questions |
+| [`docs/DECISIONS.md`](docs/DECISIONS.md) | Log of scope and design decisions |
 | [`research/`](research/) | Market and landscape research |
 | [`research/SUMMARY.md`](research/SUMMARY.md) | Overall summary of the research |
 
